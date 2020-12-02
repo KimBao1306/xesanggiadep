@@ -1,0 +1,29 @@
+.main-st-1 {
+	background-image: url(../images/step-1-bg.png);
+	background-position: center;
+	background-size: cover;
+}
+.st-1 {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding-top: 1rem;
+	padding-bottom: 4rem;
+	min-height: calc(100vh - 8rem);
+	.side-menu {
+		padding-bottom: 12rem;
+	}
+}
+@include max-media(768px) {
+	.st-1 {
+		justify-content: space-between;
+		.side-menu {
+			padding-bottom: 5rem;
+		}
+	}
+}
+@include max-media(500px) {
+	.st-1 {
+		min-height: calc(100vh - 10.8rem);
+	}
+}

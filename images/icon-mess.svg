@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_190" data-name="Rectangle 190" width="16" height="16" transform="translate(498 839)" fill="#fff" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="icon-mess" transform="translate(-498 -839)" clip-path="url(#clip-path)">
+    <g id="_x33_4.Messenger" transform="translate(496.002 837.022)">
+      <path id="Icon_78_" d="M9.988,2C5.573,2,2,5.313,2,9.408a7.2,7.2,0,0,0,2.976,5.773l.04,2.6a.192.192,0,0,0,.28.16l2.5-1.4a8.87,8.87,0,0,0,2.217.28c4.414,0,7.99-3.316,7.99-7.411S14.382,2,9.988,2Zm.579,9.828-1.7-1.778a.336.336,0,0,0-.38-.06l-3,1.618a.116.116,0,0,1-.14-.18L8.889,7.67a.278.278,0,0,1,.38,0l1.7,1.818a.306.306,0,0,0,.38.06l2.936-1.6a.116.116,0,0,1,.14.18l-3.476,3.7a.278.278,0,0,1-.38,0Z" fill="#fff"/>
+    </g>
+  </g>
+</svg>

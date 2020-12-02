@@ -1,0 +1,248 @@
+/* 
+  --show là show dropdown 
+  --active là active item
+*/
+body {
+	&:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 5;
+		background-color: rgba($color: $bg-black-cl, $alpha: 0.56);
+		transition: $t1 $cubic1 $t1;
+		pointer-events: none;
+		@include hidden;
+	}
+	&.--active-select:before {
+		pointer-events: auto;
+		transition-delay: 0s;
+		@include visible;
+	}
+}
+.side-menu__list {
+	z-index: 903;
+	.dropdown {
+		position: relative;
+		&.--show {
+			.sub-menu-wrap {
+				@include visible;
+			}
+		}
+	}
+	.sub-menu-wrap {
+		position: absolute;
+		top: 0;
+		left: calc(100% + 1rem);
+		z-index: 6;
+		width: 94rem;
+		max-height: 15rem;
+		overflow-y: auto;
+		border-radius: 0.4rem;
+		display: none;
+		@include hidden;
+		@include custom-scrollbar(1px);
+	}
+	.sub-menu {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		width: 100%;
+		li {
+			width: 14.6rem;
+			margin-right: 1rem;
+			margin-bottom: 1rem;
+			&.--active {
+				p {
+					font-weight: bold;
+					color: $main-cl;
+					background: $second-cl;
+					&:after {
+						display: block;
+					}
+				}
+			}
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+		p {
+			cursor: pointer;
+			padding-left: 3rem;
+			@include min-media(769px) {
+				padding-left: 1.5rem;
+				justify-content: center;
+				&:hover {
+					color: $main-cl;
+					&:after {
+						@include visible;
+					}
+				}
+			}
+		}
+		span {
+			margin: 0;
+		}
+	}
+}
+.side-menu__list-inner {
+	width: 23rem;
+	@include custom-scrollbar(0);
+	> ul > li {
+		margin-bottom: 1rem;
+		cursor: pointer;
+		&:last-child {
+			margin-bottom: 0;
+		}
+		&.--active {
+			> p {
+				// font-weight: bold;
+			}
+		}
+		.fa.fa-angle-right {
+			width: 2rem;
+			height: 100%;
+			font-weight: bold;
+			@include mid-flex;
+			&.--active {
+				transform: rotate(90deg);
+			}
+			@include min-media(769px) {
+				pointer-events: none;
+				width: auto;
+			}
+		}
+	}
+	p {
+		position: relative;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 1.4rem 1.5rem 1.2rem;
+		color: $second-cl;
+		text-transform: uppercase;
+		border-radius: 0.4rem;
+		transition: $t1 $cubic1;
+		background: rgb(255, 211, 116);
+		background: linear-gradient(
+			180deg,
+			rgba(255, 211, 116, 1) 0%,
+			rgba(182, 130, 39, 1) 100%
+		);
+		span {
+			position: relative;
+			z-index: 1;
+			margin-right: 2.5rem;
+		}
+		i {
+			z-index: 1;
+			font-size: 1.6rem;
+		}
+		&:after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 0;
+			border-radius: 0.4rem;
+			background: $second-cl;
+			transition: $t1 $cubic1;
+			@include hidden;
+		}
+		@include min-media(769px) {
+			&:hover {
+				color: $main-cl;
+				&:after {
+					@include visible;
+				}
+			}
+		}
+	}
+	input {
+		background: rgb(255, 211, 116);
+		background: linear-gradient(
+			180deg,
+			rgba(255, 211, 116, 1) 0%,
+			rgba(182, 130, 39, 1) 100%
+		);
+		color: $text-black-cl;
+		border: 0;
+		border-radius: 0.4rem;
+		text-transform: uppercase;
+		&::placeholder {
+			color: $text-black-cl;
+		}
+	}
+}
+.mfp-container {
+	// background-color: rgba($bg-white-cl, 0.2);
+	overflow-y: auto;
+	@include custom-scrollbar(2px);
+}
+.mfp-content {
+	.popup-wrap {
+		// min-height: 100vh;
+		// max-width: 60rem;
+		background-color: rgba($bg-white-cl, 0.4);
+		padding: 3rem 1rem;
+		@include mid-flex;
+		> div {
+			width: 100%;
+		}
+	}
+}
+.side-menu__mobile-wrap {
+	display: none;
+	margin-bottom: 1rem;
+	text-align: center;
+}
+@include max-media(1024px) {
+	.side-menu__list {
+		.sub-menu-wrap {
+			width: 72.4rem;
+		}
+		.sub-menu {
+			li {
+				width: calc(100% / 5 - 1rem);
+			}
+		}
+	}
+}
+@include max-media(768px) {
+	.side-menu__list {
+		width: 100%;
+		&-inner {
+			width: 100%;
+			height: 100%;
+			z-index: 904;
+		}
+		.sub-menu-wrap {
+			top: 4.8rem;
+			left: 0;
+			height: auto;
+			width: 100% !important;
+			transition: none;
+			// margin-bottom: 2rem;
+			@include visible;
+		}
+		.sub-menu {
+			box-shadow: 1rem 1rem 3rem rgba($color: $bg-white-cl, $alpha: 0.16);
+
+			li {
+				width: 100%;
+				margin: 0;
+			}
+			a {
+				padding-left: 3rem;
+				justify-content: flex-start;
+			}
+		}
+	}
+	.side-menu__mobile-wrap {
+		display: block;
+	}
+}
